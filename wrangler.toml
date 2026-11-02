@@ -5,4 +5,4 @@ pages_build_output_dir = "./public"
 [[d1_databases]]
 binding = "DB"
 database_name = "el-parche-db"
-database_id = "00000000-0000000a-00005117-6256114e996d354d6393339e5f4ef800"
+database_id = "2f9601de-dc0f-4919-b6b4-ab5c17ee8126"
