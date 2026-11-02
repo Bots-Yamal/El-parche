@@ -1,0 +1,525 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#07152d">
+<title>EL PARCHE — Postulaciones</title>
+<style>
+:root {
+  --bg:#07152d;
+  --panel:#0d2040;
+  --panel2:#11294e;
+  --blue:#3987ff;
+  --blue2:#65a5ff;
+  --text:#edf4ff;
+  --muted:#9aafd0;
+  --border:rgba(130,175,255,.15);
+  --green:#38cf91;
+  --red:#ff6678;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  min-height:100vh;
+  font-family:Inter,system-ui,-apple-system,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(ellipse at 10% 0%,#153d75 0,transparent 38%),
+    radial-gradient(ellipse at 100% 100%,#102d58 0,transparent 35%),
+    var(--bg);
+}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
+.hidden{display:none!important}
+header{
+  height:75px;display:flex;align-items:center;
+  justify-content:space-between;padding:0 6%;
+  border-bottom:1px solid var(--border);
+  background:rgba(5,16,35,.65);backdrop-filter:blur(16px);
+  position:sticky;top:0;z-index:10;
+}
+.brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:1px}
+.logo{
+  width:39px;height:39px;border-radius:13px;
+  display:grid;place-items:center;background:linear-gradient(135deg,#2775ed,#65aaff);
+  box-shadow:0 5px 25px #3987ff55;font-size:19px
+}
+.brand span{color:var(--blue2)}
+.header-right{display:flex;align-items:center;gap:10px}
+.container{width:min(1050px,92%);margin:45px auto 80px}
+.hero{text-align:center;padding:48px 15px 35px}
+.eyebrow{
+  display:inline-block;padding:8px 13px;border-radius:30px;
+  background:#3987ff18;border:1px solid #3987ff44;
+  color:var(--blue2);font-size:12px;font-weight:800;letter-spacing:1px
+}
+.hero h1{font-size:clamp(36px,7vw,65px);margin:20px 0 12px;letter-spacing:-2px}
+.hero h1 span{color:var(--blue2)}
+.hero p{color:var(--muted);line-height:1.7;max-width:590px;margin:auto}
+.card{
+  background:linear-gradient(145deg,rgba(16,39,75,.96),rgba(9,27,54,.96));
+  border:1px solid var(--border);border-radius:21px;padding:27px;
+  box-shadow:0 20px 70px #0003
+}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}
+.feature{padding:22px;border-radius:16px;background:#ffffff06;border:1px solid var(--border)}
+.feature .ico{font-size:24px;margin-bottom:12px}
+.feature h3{font-size:15px;margin-bottom:7px}
+.feature p{font-size:13px;color:var(--muted);line-height:1.6}
+.btn{
+  border:0;border-radius:11px;padding:12px 17px;
+  background:linear-gradient(135deg,#2674ec,#4899ff);
+  color:white;font-weight:800;transition:.2s;
+}
+.btn:hover{filter:brightness(1.12);transform:translateY(-1px)}
+.btn.secondary{background:#ffffff0b;border:1px solid var(--border);color:var(--text)}
+.btn.danger{background:#d83d59}
+.btn.success{background:#16885e}
+.btn.small{padding:8px 11px;font-size:12px}
+.actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:25px}
+h2{font-size:24px;margin-bottom:8px}
+.subtitle{color:var(--muted);font-size:13px;line-height:1.6;margin-bottom:23px}
+.form{max-width:650px;margin:auto}
+.field{margin-bottom:17px}
+.field label{display:block;font-size:13px;font-weight:750;margin-bottom:8px}
+.field input,.field textarea,.field select{
+  width:100%;padding:13px 14px;border-radius:11px;
+  border:1px solid var(--border);background:#071832;color:var(--text);
+  outline:none;transition:.2s
+}
+.field input:focus,.field textarea:focus,.field select:focus{
+  border-color:var(--blue);box-shadow:0 0 0 3px #3987ff20
+}
+.field textarea{min-height:105px;resize:vertical}
+.field small{display:block;color:var(--muted);font-size:11px;margin-top:6px}
+.form-footer{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.notice{padding:13px 15px;border-radius:11px;background:#3987ff13;border:1px solid #3987ff33;color:#b8d7ff;font-size:13px;line-height:1.6;margin-bottom:20px}
+.error{color:#ff8b9b;font-size:13px;margin:12px 0}
+.success-msg{color:#64e6ae;font-size:13px;margin:12px 0}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0}
+.tab{padding:10px 14px;border:1px solid var(--border);border-radius:10px;background:#ffffff08;color:var(--muted);font-size:13px}
+.tab.active{background:#3987ff24;border-color:#3987ff;color:white}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px 0}
+.stat{padding:17px;border-radius:14px;background:#ffffff08;border:1px solid var(--border)}
+.stat strong{display:block;font-size:27px;margin-bottom:5px}
+.stat span{font-size:12px;color:var(--muted)}
+.list{display:grid;gap:12px;margin-top:15px}
+.item{padding:17px;border:1px solid var(--border);border-radius:14px;background:#ffffff06}
+.item-top{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.item h3{font-size:15px}
+.item p{font-size:12px;color:var(--muted);margin-top:7px}
+.status{font-size:11px;font-weight:800;padding:6px 9px;border-radius:30px;background:#e9aa351c;color:#ffd47a}
+.status.accepted{background:#27c88c20;color:#62e4ae}
+.status.rejected{background:#ff667820;color:#ff8795}
+.question{padding:15px;border-radius:12px;background:#ffffff08;margin:12px 0}
+.question b{display:block;font-size:13px;margin-bottom:8px}
+.question p{font-size:13px;color:#c2d3ec;white-space:pre-wrap;line-height:1.6}
+hr{border:0;border-top:1px solid var(--border);margin:22px 0}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:left;padding:13px;border-bottom:1px solid var(--border)}
+th{color:var(--muted);font-weight:700}
+.empty{text-align:center;color:var(--muted);padding:30px}
+footer{text-align:center;color:#7890b5;font-size:12px;padding:25px;border-top:1px solid var(--border)}
+#toast{
+ position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
+ background:#17365f;border:1px solid #3987ff55;border-radius:12px;
+ padding:13px 18px;z-index:50;box-shadow:0 10px 40px #0008;
+ font-size:13px;max-width:90%;text-align:center
+}
+@media(max-width:650px){
+ header{padding:0 4%;height:65px}
+ .container{margin-top:25px}
+ .card{padding:20px}
+ .grid{grid-template-columns:1fr}
+ .stats{gap:7px}
+ .stat{padding:12px}
+ .stat strong{font-size:22px}
+ .hero{padding-top:30px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand"><div class="logo">E</div> EL <span>PARCHE</span></div>
+  <div class="header-right">
+    <button class="btn secondary small" id="headerLogin" onclick="show('login')">Iniciar sesión</button>
+    <button class="btn small hidden" id="logoutBtn" onclick="logout()">Salir</button>
+  </div>
+</header>
+
+<main class="container">
+<section id="home">
+  <div class="hero">
+    <div class="eyebrow">✦ SISTEMA OFICIAL DE POSTULACIONES</div>
+    <h1>Tu oportunidad<br>está en <span>EL PARCHE.</span></h1>
+    <p>¿Quieres formar parte de nuestro equipo? Completa tu postulación y demuestra lo que puedes aportar a nuestra comunidad.</p>
+    <div class="actions">
+      <button class="btn" onclick="show('register')">Crear mi cuenta</button>
+      <button class="btn secondary" onclick="show('login')">Ya tengo cuenta</button>
+    </div>
+  </div>
+  <div class="grid">
+    <div class="feature"><div class="ico">📝</div><h3>Postulación sencilla</h3><p>Responde las preguntas y envía tu solicitud desde tu cuenta.</p></div>
+    <div class="feature"><div class="ico">🔒</div><h3>Privacidad</h3><p>Tus respuestas solamente estarán disponibles para el equipo autorizado.</p></div>
+    <div class="feature"><div class="ico">📊</div><h3>Seguimiento</h3><p>Consulta el estado de tu postulación desde tu panel personal.</p></div>
+    <div class="feature"><div class="ico">💙</div><h3>Comunidad</h3><p>Queremos conocer tus habilidades y tus ganas de colaborar.</p></div>
+  </div>
+</section>
+
+<section id="register" class="card form hidden">
+  <h2>Crear una cuenta</h2>
+  <p class="subtitle">Regístrate para acceder a tu panel de postulante.</p>
+  <div class="notice">Tu cuenta será de tipo usuario. El registro público nunca concede permisos administrativos.</div>
+  <form onsubmit="register(event)">
+    <div class="field"><label>Nombre de usuario</label><input id="regUser" required minlength="3" maxlength="24" autocomplete="username" placeholder="Ejemplo: Alex123"></div>
+    <div class="field"><label>Contraseña</label><input id="regPass" type="password" required minlength="10" autocomplete="new-password" placeholder="Mínimo 10 caracteres"></div>
+    <div class="field"><label>Confirmar contraseña</label><input id="regConfirm" type="password" required minlength="10" autocomplete="new-password" placeholder="Repite tu contraseña"></div>
+    <div id="regMsg" class="error"></div>
+    <div class="form-footer"><button class="btn">Crear cuenta</button><button type="button" class="btn secondary" onclick="show('login')">Ya tengo cuenta</button></div>
+  </form>
+</section>
+
+<section id="login" class="card form hidden">
+  <h2>Bienvenido de nuevo</h2>
+  <p class="subtitle">Inicia sesión para continuar.</p>
+  <form onsubmit="login(event)">
+    <div class="field"><label>Nombre de usuario</label><input id="loginUser" required autocomplete="username" placeholder="Tu usuario"></div>
+    <div class="field"><label>Contraseña</label><input id="loginPass" type="password" required autocomplete="current-password" placeholder="Tu contraseña"></div>
+    <div id="loginMsg" class="error"></div>
+    <div class="form-footer"><button class="btn">Iniciar sesión</button><button type="button" class="btn secondary" onclick="show('register')">Crear cuenta</button></div>
+  </form>
+</section>
+
+<section id="setup" class="card form hidden">
+  <h2>Configuración inicial</h2>
+  <p class="subtitle">Crear la primera cuenta SuperAdmin. Esta pantalla solamente funciona una vez.</p>
+  <div class="notice">El secreto de configuración se crea en Cloudflare y no debe compartirse.</div>
+  <form onsubmit="setupAdmin(event)">
+    <div class="field"><label>Secreto de configuración</label><input id="setupSecret" type="password" required></div>
+    <div class="field"><label>Usuario SuperAdmin</label><input id="setupUser" required minlength="3" maxlength="24"></div>
+    <div class="field"><label>Contraseña SuperAdmin</label><input id="setupPass" type="password" required minlength="12"></div>
+    <div id="setupMsg" class="error"></div>
+    <button class="btn">Crear SuperAdmin</button>
+  </form>
+</section>
+
+<section id="userPanel" class="hidden">
+  <div class="card">
+    <div class="eyebrow">PANEL DE POSTULANTE</div>
+    <h2 id="userWelcome" style="margin-top:13px">Mi cuenta</h2>
+    <p class="subtitle">Gestiona tus postulaciones y consulta sus estados.</p>
+    <div class="actions" style="justify-content:flex-start;margin:0">
+      <button class="btn" onclick="showApplication()">Nueva postulación</button>
+      <button class="btn secondary" onclick="loadApplications()">Actualizar historial</button>
+    </div>
+  </div>
+  <div class="card" style="margin-top:18px">
+    <h2>Mis postulaciones</h2>
+    <div id="myApplications" class="list"><div class="empty">Cargando...</div></div>
+  </div>
+</section>
+
+<section id="application" class="card form hidden">
+  <div class="eyebrow">FORMULARIO OFICIAL</div>
+  <h2 style="margin-top:14px">Postulación a Staff</h2>
+  <p class="subtitle">Completa las dos secciones con información verdadera. Las respuestas serán privadas.</p>
+  <div class="notice">No incluyas contraseñas, direcciones exactas ni información sensible que no sea necesaria. La ciudad y el género son opcionales.</div>
+  <form onsubmit="sendApplication(event)">
+    <h3 style="margin:22px 0 15px">୨୧ INFORMACIÓN PERSONAL</h3>
+    <div class="field"><label>1. ¿Cuál es tu nombre real o cómo prefieres que te llamemos?</label><input name="p1" required maxlength="100" placeholder="Ejemplo: Juan / Alex"></div>
+    <div class="field"><label>2. ¿Cuál es tu género?</label><select name="p2"><option value="Prefiero no decirlo">Prefiero no decirlo</option><option>Masculino</option><option>Femenino</option><option>Otro</option></select></div>
+    <div class="field"><label>3. ¿Qué edad tienes?</label><input name="p3" type="number" min="13" max="99" required placeholder="Ejemplo: 18"></div>
+    <div class="field"><label>4. ¿De qué país y ciudad eres?</label><input name="p4" required maxlength="100" placeholder="Ejemplo: Colombia (ciudad opcional)"></div>
+    <div class="field"><label>5. ¿Cuál es tu idioma principal?</label><input name="p5" required maxlength="60" placeholder="Ejemplo: Español"></div>
+    <div class="field"><label>6. ¿Estudias, trabajas o ambas?</label><textarea name="p6" required maxlength="500" placeholder="Cuéntanos..."></textarea></div>
+    <div class="field"><label>7. ¿Qué haces normalmente en tu tiempo libre?</label><textarea name="p7" required maxlength="700" placeholder="Cuéntanos..."></textarea></div>
+    <div class="field"><label>8. ¿Cómo describirías tu personalidad?</label><textarea name="p8" required maxlength="700" placeholder="Cuéntanos..."></textarea></div>
+
+    <hr>
+    <h3 style="margin-bottom:15px">୨୧ POSTULACIÓN A STAFF — EL PARCHE</h3>
+    <div class="field"><label>1. ¿Cuál es tu nombre o apodo?</label><input name="s1" required maxlength="100" placeholder="Ejemplo: Alex"></div>
+    <div class="field"><label>2. ¿Cuál es tu mención de Discord?</label><input name="s2" required maxlength="100" placeholder="Ejemplo: @usuario"></div>
+    <div class="field"><label>3. ¿Cuál es tu ID de Discord?</label><input name="s3" required pattern="[0-9]{17,20}" placeholder="Ejemplo: 123456789012345678"></div>
+    <div class="field"><label>4. ¿Cuántos años tienes?</label><input name="s4" type="number" min="13" max="99" required placeholder="Ejemplo: 18"></div>
+    <div class="field"><label>5. ¿De qué país eres y cuál es tu zona horaria?</label><input name="s5" required maxlength="100" placeholder="Ejemplo: Colombia (GMT-5)"></div>
+    <div class="field"><label>6. ¿En qué horarios estás disponible?</label><textarea name="s6" required maxlength="500" placeholder="Ejemplo: De 3:00 p. m. a 9:00 p. m."></textarea></div>
+    <div class="field"><label>7. ¿Cuánto tiempo puedes dedicar al servidor diariamente?</label><textarea name="s7" required maxlength="300" placeholder="Ejemplo: Entre 2 y 4 horas"></textarea></div>
+    <div class="field"><label>8. ¿Tienes experiencia como staff en otros servidores?</label><textarea name="s8" required maxlength="1000" placeholder="Cuéntanos tu experiencia"></textarea></div>
+    <div class="field"><label>9. ¿Por qué te gustaría formar parte del staff de El Parche?</label><textarea name="s9" required maxlength="1200" placeholder="Cuéntanos tus motivos"></textarea></div>
+    <div id="appMsg" class="error"></div>
+    <div class="form-footer">
+      <button class="btn">Enviar postulación</button>
+      <button type="button" class="btn secondary" onclick="show('userPanel')">Cancelar</button>
+    </div>
+  </form>
+</section>
+
+<section id="adminPanel" class="hidden">
+  <div class="card">
+    <div class="eyebrow">ZONA ADMINISTRATIVA</div>
+    <h2 id="adminWelcome" style="margin-top:13px">Panel administrativo</h2>
+    <p class="subtitle" id="adminDescription">Gestiona las postulaciones de El Parche.</p>
+    <div class="stats">
+      <div class="stat"><strong id="statPending">0</strong><span>Pendientes</span></div>
+      <div class="stat"><strong id="statAccepted">0</strong><span>Aceptadas</span></div>
+      <div class="stat"><strong id="statRejected">0</strong><span>Rechazadas</span></div>
+    </div>
+    <div class="tabs">
+      <button class="tab active" onclick="filterApplications('all',this)">Todas</button>
+      <button class="tab" onclick="filterApplications('pending',this)">Pendientes</button>
+      <button class="tab" onclick="filterApplications('accepted',this)">Aceptadas</button>
+      <button class="tab" onclick="filterApplications('rejected',this)">Rechazadas</button>
+    </div>
+    <div class="field"><label>Buscar postulante</label><input id="searchApplications" placeholder="Buscar por nombre o usuario..." oninput="renderAdminApplications()"></div>
+    <div id="adminApplications" class="list"><div class="empty">Cargando...</div></div>
+  </div>
+
+  <div id="ownerManagement" class="card hidden" style="margin-top:18px">
+    <h2>Crear cuenta Owner</h2>
+    <p class="subtitle">Solo SuperAdmin puede crear cuentas administrativas.</p>
+    <form onsubmit="createOwner(event)">
+      <div class="field"><label>Usuario del Owner</label><input id="ownerUser" required minlength="3" maxlength="24"></div>
+      <div class="field"><label>Contraseña temporal</label><input id="ownerPass" type="password" required minlength="12"></div>
+      <div id="ownerMsg" class="error"></div>
+      <button class="btn">Crear Owner</button>
+    </form>
+  </div>
+</section>
+
+<section id="review" class="card hidden">
+  <button class="btn secondary small" onclick="show('adminPanel')">← Volver</button>
+  <div id="reviewContent" style="margin-top:20px"></div>
+</section>
+</main>
+
+<footer>EL PARCHE · Sistema privado de postulaciones · © 2026</footer>
+<div id="toast" class="hidden"></div>
+
+<script>
+const API="/api";
+let currentUser=null;
+let allApplications=[];
+let currentFilter="all";
+let currentReview=null;
+
+function show(id){
+  document.querySelectorAll("main section").forEach(s=>s.classList.add("hidden"));
+  document.getElementById(id).classList.remove("hidden");
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function toast(message){
+  const t=document.getElementById("toast");
+  t.textContent=message;t.classList.remove("hidden");
+  clearTimeout(window.toastTimer);
+  window.toastTimer=setTimeout(()=>t.classList.add("hidden"),3000);
+}
+async function api(path,options={}){
+  const response=await fetch(API+path,{
+    ...options,
+    credentials:"same-origin",
+    headers:{"Content-Type":"application/json",...(options.headers||{})}
+  });
+  const data=await response.json().catch(()=>({error:"Respuesta inválida del servidor"}));
+  if(!response.ok)throw new Error(data.error||"Ha ocurrido un error");
+  return data;
+}
+function message(id,text,ok=false){
+  const el=document.getElementById(id);
+  el.textContent=text;
+  el.className=ok?"success-msg":"error";
+}
+async function register(e){
+  e.preventDefault();
+  const username=document.getElementById("regUser").value.trim();
+  const password=document.getElementById("regPass").value;
+  if(password!==document.getElementById("regConfirm").value)
+    return message("regMsg","Las contraseñas no coinciden.");
+  try{
+    await api("/register",{method:"POST",body:JSON.stringify({username,password})});
+    message("regMsg","Cuenta creada. Iniciando sesión...",true);
+    await loginWith(username,password);
+  }catch(err){message("regMsg",err.message)}
+}
+async function login(e){
+  e.preventDefault();
+  try{
+    await loginWith(document.getElementById("loginUser").value.trim(),document.getElementById("loginPass").value);
+  }catch(err){message("loginMsg",err.message)}
+}
+async function loginWith(username,password){
+  const data=await api("/login",{method:"POST",body:JSON.stringify({username,password})});
+  currentUser=data.user;
+  await refreshSession();
+}
+async function refreshSession(){
+  const data=await api("/me");
+  currentUser=data.user;
+  document.getElementById("headerLogin").classList.add("hidden");
+  document.getElementById("logoutBtn").classList.remove("hidden");
+  if(currentUser.role==="user"){
+    document.getElementById("userWelcome").textContent="Bienvenido, "+currentUser.username;
+    show("userPanel");await loadApplications();
+  }else{
+    document.getElementById("adminWelcome").textContent="Bienvenido, "+currentUser.username;
+    document.getElementById("adminDescription").textContent=
+      currentUser.role==="superadmin"?"SuperAdmin · Control completo de la plataforma":"Owner · Administración de El Parche";
+    document.getElementById("ownerManagement").classList.toggle("hidden",currentUser.role!=="superadmin");
+    show("adminPanel");await loadAdminApplications();
+  }
+}
+async function logout(){
+  try{await api("/logout",{method:"POST",body:"{}"})}catch(e){}
+  currentUser=null;
+  document.getElementById("headerLogin").classList.remove("hidden");
+  document.getElementById("logoutBtn").classList.add("hidden");
+  show("home");toast("Sesión cerrada.");
+}
+function showApplication(){
+  show("application");
+}
+async function sendApplication(e){
+  e.preventDefault();
+  const form=new FormData(e.target);
+  const answers={};
+  for(const [key,value] of form.entries())answers[key]=String(value).trim();
+  try{
+    await api("/applications",{method:"POST",body:JSON.stringify({answers})});
+    toast("¡Tu postulación fue enviada!");
+    e.target.reset();show("userPanel");await loadApplications();
+  }catch(err){message("appMsg",err.message)}
+}
+function statusLabel(status){
+  return status==="accepted"?"Aceptada":status==="rejected"?"Rechazada":"Pendiente";
+}
+function statusClass(status){
+  return status==="accepted"?"accepted":status==="rejected"?"rejected":"";
+}
+async function loadApplications(){
+  try{
+    const data=await api("/applications");
+    const box=document.getElementById("myApplications");
+    if(!data.applications.length){box.innerHTML='<div class="empty">Todavía no tienes postulaciones.</div>';return}
+    box.innerHTML=data.applications.map(a=>`
+      <div class="item">
+        <div class="item-top"><h3>Postulación #${a.id}</h3><span class="status ${statusClass(a.status)}">${statusLabel(a.status)}</span></div>
+        <p>Enviada: ${new Date(a.created_at).toLocaleString("es")}</p>
+        ${a.note?`<p>Observación: ${escapeHTML(a.note)}</p>`:""}
+      </div>`).join("");
+  }catch(err){toast(err.message)}
+}
+async function loadAdminApplications(){
+  try{
+    const data=await api("/applications");
+    allApplications=data.applications;
+    const p=allApplications.filter(a=>a.status==="pending").length;
+    const ac=allApplications.filter(a=>a.status==="accepted").length;
+    const r=allApplications.filter(a=>a.status==="rejected").length;
+    document.getElementById("statPending").textContent=p;
+    document.getElementById("statAccepted").textContent=ac;
+    document.getElementById("statRejected").textContent=r;
+    renderAdminApplications();
+  }catch(err){toast(err.message)}
+}
+function filterApplications(filter,button){
+  currentFilter=filter;
+  document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
+  button.classList.add("active");
+  renderAdminApplications();
+}
+function escapeHTML(value){
+  return String(value??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+function renderAdminApplications(){
+  const search=(document.getElementById("searchApplications")?.value||"").toLowerCase();
+  const filtered=allApplications.filter(a=>
+    (currentFilter==="all"||a.status===currentFilter)&&
+    (a.username.toLowerCase().includes(search)||String(a.id).includes(search))
+  );
+  const box=document.getElementById("adminApplications");
+  if(!filtered.length){box.innerHTML='<div class="empty">No hay postulaciones para mostrar.</div>';return}
+  box.innerHTML=filtered.map(a=>`
+    <div class="item">
+      <div class="item-top"><h3>${escapeHTML(a.username)}</h3><span class="status ${statusClass(a.status)}">${statusLabel(a.status)}</span></div>
+      <p>Postulación #${a.id} · ${new Date(a.created_at).toLocaleString("es")}</p>
+      <div style="margin-top:13px"><button class="btn small" onclick="openReview(${a.id})">Leer respuestas</button></div>
+    </div>`).join("");
+}
+async function openReview(id){
+  try{
+    const data=await api("/applications/"+id);
+    currentReview=data.application;
+    const a=currentReview;
+    const personal=[
+      ["Nombre o apodo", "p1"],["Género","p2"],["Edad","p3"],["País y ciudad","p4"],
+      ["Idioma principal","p5"],["Estudios o trabajo","p6"],["Tiempo libre","p7"],["Personalidad","p8"]
+    ];
+    const staff=[
+      ["Nombre o apodo","s1"],["Mención Discord","s2"],["ID Discord","s3"],["Edad","s4"],
+      ["País y zona horaria","s5"],["Horarios disponibles","s6"],["Tiempo diario","s7"],
+      ["Experiencia como Staff","s8"],["Motivo para unirse","s9"]
+    ];
+    const block=(title,items)=>`<h3 style="margin:23px 0 12px">${title}</h3>`+
+      items.map(([label,key])=>`<div class="question"><b>${label}</b><p>${escapeHTML(a.answers[key]||"Sin respuesta")}</p></div>`).join("");
+    document.getElementById("reviewContent").innerHTML=`
+      <div class="eyebrow">POSTULACIÓN #${a.id}</div>
+      <h2 style="margin-top:12px">${escapeHTML(a.username)}</h2>
+      <span class="status ${statusClass(a.status)}">${statusLabel(a.status)}</span>
+      ${block("୨୧ INFORMACIÓN PERSONAL",personal)}
+      ${block("୨୧ POSTULACIÓN A STAFF",staff)}
+      <hr>
+      <h3>Decisión del Owner</h3>
+      <div class="field"><label>Observación privada</label><textarea id="reviewNote" maxlength="1000">${escapeHTML(a.note||"")}</textarea></div>
+      <div class="form-footer">
+        <button class="btn success" onclick="reviewApplication('accepted')">Aceptar</button>
+        <button class="btn danger" onclick="reviewApplication('rejected')">Rechazar</button>
+        <button class="btn secondary" onclick="reviewApplication('pending')">Dejar pendiente</button>
+      </div>`;
+    show("review");
+  }catch(err){toast(err.message)}
+}
+async function reviewApplication(status){
+  try{
+    await api("/review",{method:"POST",body:JSON.stringify({
+      id:currentReview.id,status,note:document.getElementById("reviewNote").value
+    })});
+    toast("Postulación actualizada.");
+    show("adminPanel");await loadAdminApplications();
+  }catch(err){toast(err.message)}
+}
+async function createOwner(e){
+  e.preventDefault();
+  try{
+    await api("/owners",{method:"POST",body:JSON.stringify({
+      username:document.getElementById("ownerUser").value.trim(),
+      password:document.getElementById("ownerPass").value
+    })});
+    e.target.reset();message("ownerMsg","Cuenta Owner creada correctamente.",true);
+  }catch(err){message("ownerMsg",err.message)}
+}
+async function setupAdmin(e){
+  e.preventDefault();
+  try{
+    await api("/setup",{method:"POST",body:JSON.stringify({
+      secret:document.getElementById("setupSecret").value,
+      username:document.getElementById("setupUser").value.trim(),
+      password:document.getElementById("setupPass").value
+    })});
+    message("setupMsg","SuperAdmin creado. Ya puedes iniciar sesión.",true);
+  }catch(err){message("setupMsg",err.message)}
+}
+async function initialize(){
+  try{
+    const status=await api("/setup-status");
+    if(!status.configured){show("setup");return}
+    try{await refreshSession()}catch(e){show("home")}
+  }catch(e){
+    show("home");
+    toast("No se pudo conectar con el servidor. Comprueba la configuración de Cloudflare.");
+  }
+}
+initialize();
+</script>
+</body>
+</html>
